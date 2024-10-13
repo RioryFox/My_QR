@@ -1,24 +1,21 @@
-#ifndef MY_QR_H
-#define MY_QR_H
-
 #include <qrcode.h>
 
 struct DisplayInfo
 {
-    int DY;
-    int DX;
-    int DOY;
-    int DOX;
-    int MS;
-    bool AS;
-    int MMV;
-    bool AMV;
+    int displayY=64;
+    int displayX=128;
+    int topLeftY=0;
+    int topLeftX=0;
+    int myScale=1;
+    bool autoScale=false;
+    int myMaxVersion=1;
+    bool autoMaxVersion=true;
 };
 
 struct QRCodeInfo
 {
-  int version;
-  int eccLevel;
+  int version=-1;
+  int eccLevel=-1;
 };
 
 class MyQr
@@ -30,5 +27,3 @@ class MyQr
     private:
         int get_max_ecc_level(String qrData, int version, int ecc_version=0);
 };
-
-#endif
